@@ -1,17 +1,17 @@
 import numpy as np 
 
 def calculate_attendance_marks(attendance_percentage):
-    if attendance_percentage >= 96.0:
+    if attendance_percentage >= 96 :
         return 5  
-    elif attendance_percentage >= 91.0:
+    elif attendance_percentage >= 91 :
         return 4 
-    elif attendance_percentage >= 86.0:
+    elif attendance_percentage >= 86 :
         return 3 
-    elif attendance_percentage >= 81.0:
+    elif attendance_percentage >= 81 :
         return 2 
-    elif attendance_percentage >= 76.0:
+    elif attendance_percentage >= 76 :
         return 1  
-    elif attendance_percentage == 75.0: 
+    elif attendance_percentage == 75 : 
         return 0 
     else: 
         return "Debarred" 
@@ -24,36 +24,29 @@ def calculate_result(midterm_marks, final_marks, internal_marks, attendance_perc
 
     attendance_marks = attendance_result
     
-    midterm_contribution = (midterm_marks / 50.0) * 30.0
+    midterm_contribution = (midterm_marks / 50) * 30
     
-    # 4. Convert final marks (max 100) to 30%: 
-    final_contribution = (final_marks / 100.0) * 30.0
-    
-    # 5. Internal marks (max 35) directly contribute 35% 
-    internal_contribution = internal_marks
-    
-    # 7. Check if final marks are less than 40% of 100 (i.e., < 40). 
-    if final_marks < 40.0:
-        return "F" 
+    final_contribution = (final_marks / 100)
 
-    # 6. Calculate total marks out of 100 by summing all components. 
-    total_marks = (midterm_contribution + final_contribution 
-                   + internal_contribution + attendance_marks)
-    
-    # 8. Otherwise, return the calculated total marks.
+    internal_contribution = internal_marks
+
+    if final_marks < 40 :
+        return "F"
+
+    total_marks = midterm_contribution + final_contribution + internal_contribution + attendance_marks
     return total_marks
 
 def assign_grade_and_analysis(total_marks, mean, std_dev):
     grade = ""
-    
+
     threshold_S = mean + 1.5 * std_dev
     threshold_A = mean + 0.5 * std_dev
     threshold_B = mean - 0.5 * std_dev
     threshold_C = mean - 1.0 * std_dev
     threshold_D = mean - 1.5 * std_dev
     threshold_E = mean - 2.0 * std_dev
-
-    if total_marks >= threshold_S and total_marks >= 90.0:
+    
+    if total_marks >= threshold_S :
         grade = "S"
         analysis = " - Exceptional Performance!" 
     elif total_marks >= threshold_A and total_marks < threshold_S:
@@ -78,10 +71,9 @@ def assign_grade_and_analysis(total_marks, mean, std_dev):
     return f"{grade}{analysis}"
 
 def get_student_input(student_number):
-    """Helper function to get all required input from the user."""
+
     print(f"\n--- Entering Data for Student {student_number} ---")
     
-    # Input with basic validation (assuming inputs are within maximum range)
     while True:
         try:
             midterm = float(input("Enter Midterm Marks (out of 50): "))
@@ -91,7 +83,7 @@ def get_student_input(student_number):
                 print("Error: Midterm marks must be between 0 and 50.")
         except ValueError:
             print("Invalid input. Please enter a number.")
-            
+
     while True:
         try:
             final = float(input("Enter Final Exam Marks (out of 100): "))
@@ -125,7 +117,7 @@ def get_student_input(student_number):
     return midterm, final, internal, attendance
 
 def display_result(student_num, total_marks, final_grade_analysis):
-    """Helper function to display results in a formatted way."""
+    
     print("\n-------------------------------------------")
     print(f"       STUDENT {student_num} FINAL RESULT        ")
     print("-------------------------------------------")
@@ -145,7 +137,7 @@ def main():
     NUM_STUDENTS = 3
     all_student_data = []
     numerical_scores = []
-    
+
     for i in range(1, NUM_STUDENTS + 1):
         midterm_marks, final_marks, internal_marks, attendance_percentage = get_student_input(i)
 
