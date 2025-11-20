@@ -1,34 +1,29 @@
 import numpy as np 
 
 def calculate_attendance_marks(attendance_percentage):
-    """Calculates attendance marks based on percentage, handling debarment."""
-    # Attendance Marking Rules
     if attendance_percentage >= 96.0:
-        return 5  # 96% to 100% - 5 marks 
+        return 5  
     elif attendance_percentage >= 91.0:
-        return 4  # 91% to 95% - 4 marks 
+        return 4 
     elif attendance_percentage >= 86.0:
-        return 3  # 86% to 90% - 3 marks 
+        return 3 
     elif attendance_percentage >= 81.0:
-        return 2  # 81% to 85% - 2 marks 
+        return 2 
     elif attendance_percentage >= 76.0:
-        return 1  # 76% to 80% - 1 mark 
+        return 1  
     elif attendance_percentage == 75.0: 
-        return 0  # 75% - 0 mark
-    else: # Below 75% 
-        return "Debarred" # Student is debarred from the subject 
+        return 0 
+    else: 
+        return "Debarred" 
 
 def calculate_result(midterm_marks, final_marks, internal_marks, attendance_percentage):
-    # 1. Calculate attendance marks
     attendance_result = calculate_attendance_marks(attendance_percentage)
     
-    # 2. If attendance is "Debarred", return "Debarred from Subject". 
     if attendance_result == "Debarred":
         return "Debarred from Subject"
 
     attendance_marks = attendance_result
     
-    # 3. Convert midterm marks (max 50) to 30%: 
     midterm_contribution = (midterm_marks / 50.0) * 30.0
     
     # 4. Convert final marks (max 100) to 30%: 
