@@ -26,12 +26,16 @@ def calculate_result(midterm_marks, final_marks, internal_marks, attendance_perc
     
     midterm_contribution = (midterm_marks / 50) * 30
     
-    final_contribution = (final_marks / 100)
+    final_contribution = (final_marks / 100) * 30
 
     internal_contribution = internal_marks
 
     if final_marks < 40 :
         return "F"
+    
+    if midterm_marks < 20 : 
+        if final_marks < 40 + (20 - midterm_marks) : 
+            return "F"
 
     total_marks = midterm_contribution + final_contribution + internal_contribution + attendance_marks
     return total_marks
@@ -134,7 +138,7 @@ def display_result(student_num, total_marks, final_grade_analysis):
     print("-------------------------------------------\n")
 
 def main():
-    NUM_STUDENTS = 3
+    NUM_STUDENTS = int(input("How many students :- "))
     all_student_data = []
     numerical_scores = []
 
