@@ -1,57 +1,66 @@
-# Student Result Calculator
+## 👨‍🎓 Student Marks Program: Easy Guide
 
-This is a simple Python program that calculates student results based on
-midterm marks, final exam marks, internal marks, and attendance.
+This is a **Python program** that figures out student results. It uses marks from four places: the midterm, the final test, internal/project work, and attendance.
 
-It also calculates the class average, standard deviation, and gives grades.
+The program also gives useful info like the **class average**, a statistical number called **standard deviation**, and the **final letter grade**.
 
-## What this program does
 
-* Takes input for many students
-* Checks attendance
-* Calculates marks
-* Checks fail conditions
-* Gives total marks
-* Gives a final grade
-* Shows a short analysis
-* Shows class average and standard deviation
 
-## How the marks are counted
+### ✅ What the Program Does
 
-* Midterm: out of 50 → counted as 30 marks
-* Final exam: out of 100 → counted as 30 marks
-* Internal marks: out of 35 → added directly
-* Attendance: gives 0 to 5 marks
-* If attendance is below 75% → student is debarred
-* If final marks < 40 → student fails
+Here’s a simple list of the things this tool can do:
 
-## Grades
+  * **Handle Many Students:** Takes marks and info for many students at once.
+  * **Attendance Check:** Makes sure students came to class enough.
+  * **Calculate Total Marks:** Adds up all the weighted marks correctly.
+  * **Check for Failure:** Looks for reasons a student might fail the course.
+  * **Give a Final Grade:** Assigns a letter grade (S, A, B, etc.).
+  * **Analyze the Class:** Shows the **average** marks and the **standard deviation** for everyone.
 
-Grades are given using mean and standard deviation:
 
-* S
-* A
-* B
-* C
-* D
-* E
-* F
 
-## How to run
+### 🔢 How We Count the Marks (Out of 100)
 
-1. Install Python
-2. Install numpy
+We take different amounts from each test to get the full 100 final marks.
 
-``` pip install numpy ```
+| Part of the Grade | Max Score (Input) | Counted As (Final Weight) |
+| :--- | :---: | :---: |
+| **Midterm Exam** | 50 marks | 30 marks |
+| **Final Exam** | 100 marks | 30 marks |
+| **Internal Marks** | 35 marks | 35 marks |
+| **Attendance** | N/A (Based on %) | 5 marks |
 
-3. Run the file
+#### 🛑 Failing Rules
 
-``` python code.py ```
+It’s important to know the ways a student fails:
 
-4. Enter student details when asked.
+1.  **Attendance:** If the student's attendance is **under 75%**, they are **debarred** (they fail automatically, even with good marks).
+2.  **Final Exam:** If the student scores **less than 40 marks** on the actual Final Exam (out of 100), they **fail** the subject.
 
-## Files in this project
+#### Grades
 
-* `code.py` → main program
-* `README.md` → simple guide
-* `statement.md` → explanation of the task
+The program uses the class **average** and **standard deviation** to decide the final letter grades (**S, A, B, C, D, E, F**).
+
+
+### 🚀 How to Start the Program
+
+You need two simple steps before you can run the program.
+
+1.  **Install numpy**
+    This is a helper program needed for the math (standard deviation). You only do this once.
+
+    `pip install numpy`
+
+2.  **Run the file**
+    Use this command to start the main program:
+
+    `python code.py`
+
+    The program will then ask you to enter the student details.
+
+
+### 📁 Project Files
+
+  * `code.py`: The main program.
+  * `README.md`: This guide.
+  * `statement.md`: The paper explaining the main job/task.
