@@ -224,6 +224,13 @@ def main():
     print("===========================================")
     print(f"Class Average (Mean): {mean_score:.2f}")
     print(f"Standard Deviation (sigma): {std_dev:.2f}")
+
+    s_threshold = mean_score + 1.5 * std_dev
+    a_threshold = mean_score + 0.5 * std_dev
+
+    print(f"S Threshold: {s_threshold:.2f}")
+    print(f"A Threshold: {a_threshold:.2f}")
+
     print(f"Minimum Passing Mark: {mean_score - 2.0 * std_dev:.2f}")
     print("===========================================")
 
